@@ -15,7 +15,7 @@ import {
   CircularProgress,
   Alert,
 } from '@mui/material';
-import { Search, FilterList, Sort } from '@mui/icons-material';
+import { Search, Sort } from '@mui/icons-material';
 import { PlanetCard } from '../components/PlanetCard';
 import { useExoplanetStore } from '../store';
 

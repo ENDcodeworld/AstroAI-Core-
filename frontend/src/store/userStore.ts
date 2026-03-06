@@ -20,7 +20,7 @@ export const useUserStore = create<UserState>((set) => ({
   loading: false,
   error: null,
 
-  login: async (email: string, password: string) => {
+  login: async (email: string, _password: string) => {
     set({ loading: true, error: null });
     
     try {
@@ -42,7 +42,7 @@ export const useUserStore = create<UserState>((set) => ({
     }
   },
 
-  register: async (username: string, email: string, password: string) => {
+  register: async (username: string, email: string, _password: string) => {
     set({ loading: true, error: null });
     
     try {

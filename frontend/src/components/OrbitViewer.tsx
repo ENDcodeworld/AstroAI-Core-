@@ -59,10 +59,10 @@ function PlanetOrbit({ planet }: { planet: Exoplanet }) {
   return (
     <group>
       {/* Orbit path */}
-      <line ref={orbitRef}>
+      <lineSegments ref={orbitRef}>
         <bufferGeometry attach="geometry" {...orbitGeometry} />
         <lineBasicMaterial attach="material" color="#4a90d9" transparent opacity={0.4} />
-      </line>
+      </lineSegments>
 
       {/* Star at center */}
       <mesh position={[0, 0, 0]}>

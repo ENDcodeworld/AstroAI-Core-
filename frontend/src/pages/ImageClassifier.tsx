@@ -120,7 +120,7 @@ export const ImageClassifier: React.FC = () => {
               <Grid container spacing={1}>
                 {['Galaxies', 'Nebulae', 'Star Clusters', 'Supernova Remnants', 'Planetary Nebulae'].map((cat) => (
                   <Grid item xs={6} sm={4} key={cat}>
-                    <Chip label={cat} variant="outlined" size="small" fullWidth />
+                    <Chip label={cat} variant="outlined" size="small" sx={{ width: '100%' }} />
                   </Grid>
                 ))}
               </Grid>

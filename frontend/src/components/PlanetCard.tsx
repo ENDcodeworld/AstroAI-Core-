@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardContent, CardActions, Typography, Chip, Box, IconButton } from '@mui/material';
-import { LocationOn, Timeline, Weight, Public } from '@mui/icons-material';
+import { Card, CardContent, Typography, Chip, Box } from '@mui/material';
+import { LocationOn, Timeline, FitnessCenter, Public } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import type { Exoplanet } from '../types';
 
@@ -94,7 +94,7 @@ export const PlanetCard: React.FC<PlanetCardProps> = ({ planet }) => {
             <Typography variant="caption">{planet.distance} ly</Typography>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-            <Weight fontSize="small" color="action" />
+            <FitnessCenter fontSize="small" color="action" />
             <Typography variant="caption">{planet.mass} M⊕</Typography>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>

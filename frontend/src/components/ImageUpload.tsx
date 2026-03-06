@@ -1,6 +1,6 @@
 import React, { useRef, useCallback } from 'react';
 import { Box, Button, Typography, Paper, alpha } from '@mui/material';
-import { CloudUpload, Image as ImageIcon, Delete } from '@mui/icons-material';
+import { CloudUpload, Image as ImageIcon } from '@mui/icons-material';
 import { useClassificationStore } from '../store';
 
 interface ImageUploadProps {

@@ -11,7 +11,7 @@ import {
   Button,
   Skeleton,
 } from '@mui/material';
-import { ArrowBack, LocationOn, Timeline, Weight, Public, Thermostat, Star } from '@mui/icons-material';
+import { ArrowBack, LocationOn, Timeline, FitnessCenter, Public, Thermostat, Star } from '@mui/icons-material';
 import { OrbitViewer } from '../components/OrbitViewer';
 import { useExoplanetStore } from '../store';
 
@@ -145,7 +145,7 @@ export const ExoplanetDetail: React.FC = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
               <Box sx={{ bgcolor: 'primary.light', p: 1.5, borderRadius: 2, flex: 1 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
-                  <Weight fontSize="small" />
+                  <FitnessCenter fontSize="small" />
                   <Typography variant="caption">Mass</Typography>
                 </Box>
                 <Typography variant="h6">{selectedPlanet.mass}</Typography>
