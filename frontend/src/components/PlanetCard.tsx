@@ -15,8 +15,15 @@ export const PlanetCard: React.FC<PlanetCardProps> = ({ planet }) => {
     navigate(`/exoplanets/${planet.id}`);
   };
 
+  const bgGradient = planet.habitableZone 
+    ? 'linear-gradient(135deg, #66bb6a 0%, #42a5f5 100%)'
+    : 'linear-gradient(135deg, #ef5350 0%, #ffa726 100%)';
+
+  const planetSize = 80 + planet.radius * 10;
+
   return (
     <Card 
+      onClick={handleCardClick}
       sx={{ 
         height: '100%', 
         display: 'flex', 
@@ -28,7 +35,6 @@ export const PlanetCard: React.FC<PlanetCardProps> = ({ planet }) => {
           cursor: 'pointer',
         },
       }}
-      onClick={handleCardClick}
     >
       <Box
         sx={{
@@ -41,20 +47,16 @@ export const PlanetCard: React.FC<PlanetCardProps> = ({ planet }) => {
           overflow: 'hidden',
         }}
       >
-        {/* Planet visualization */}
         <Box
           sx={{
-            width: 80 + planet.radius * 10,
-            height: 80 + planet.radius * 10,
+            width: planetSize,
+            height: planetSize,
             borderRadius: '50%',
-            background: planet.habitableZone 
-              ? 'linear-gradient(135deg, #66bb6a 0%, #42a5f5 100%)'
-              : 'linear-gradient(135deg, #ef5350 0%, #ffa726 100%)',
+            background: bgGradient,
             boxShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
             position: 'relative',
           }}
         >
-          {/* Atmosphere glow */}
           <Box
             sx={{
               position: 'absolute',
