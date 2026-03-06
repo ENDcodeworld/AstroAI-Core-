@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, Chip, Box } from '@mui/material';
+import { Card, CardContent, CardActions, Typography, Chip, Box } from '@mui/material';
 import { LocationOn, Timeline, FitnessCenter, Public } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import type { Exoplanet } from '../types';
@@ -48,8 +48,8 @@ export const PlanetCard: React.FC<PlanetCardProps> = ({ planet }) => {
             height: 80 + planet.radius * 10,
             borderRadius: '50%',
             background: planet.habitableZone 
-              ? 'linear-gradient(135deg, #4caf50 0%, #2196f3 100%)'
-              : 'linear-gradient(135deg, #ff6b6b 0%, #feca57 100%)',
+              ? 'linear-gradient(135deg, #66bb6a 0%, #42a5f5 100%)'
+              : 'linear-gradient(135deg, #ef5350 0%, #ffa726 100%)',
             boxShadow: '0 0 30px rgba(255, 255, 255, 0.3)',
             position: 'relative',
           }}

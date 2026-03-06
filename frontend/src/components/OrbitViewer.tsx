@@ -12,7 +12,7 @@ interface OrbitViewerProps {
 
 function PlanetOrbit({ planet }: { planet: Exoplanet }) {
   const meshRef = useRef<THREE.Mesh>(null);
-  const orbitRef = useRef<THREE.Line>(null);
+  const orbitRef = useRef<THREE.LineSegments>(null);
   
   // Scale factors for visualization
   const orbitScale = 5;
