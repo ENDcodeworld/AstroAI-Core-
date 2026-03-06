@@ -1,65 +1,58 @@
 """
-AstroAI-Core API Server
-Main application entry point
+AstroAI API 主应用
+
+启动命令:
+    uvicorn api.app.main:app --host 0.0.0.0 --port 8000 --reload
 """
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
 
-from app.core.config import settings
-from app.api.routes import analyze, objects, auth, users
-from app.core.database import init_db
+from api.app.api.v1 import classify
 
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    """Application lifespan handler"""
-    # Startup
-    await init_db()
-    yield
-    # Shutdown
-    pass
-
-
+# 创建 FastAPI 应用
 app = FastAPI(
     title="AstroAI-Core API",
-    description="AI-Powered Astronomy Data Analysis Platform",
+    description="天文图像自动分类 API 服务",
     version="1.0.0",
-    lifespan=lifespan
+    docs_url="/docs",
+    redoc_url="/redoc"
 )
 
-# CORS
+# 配置 CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=["*"],  # 生产环境应该限制具体域名
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Routes
-app.include_router(auth.router, prefix="/api/v1/auth", tags=["Authentication"])
-app.include_router(users.router, prefix="/api/v1/users", tags=["Users"])
-app.include_router(analyze.router, prefix="/api/v1/analyze", tags=["Analysis"])
-app.include_router(objects.router, prefix="/api/v1/objects", tags=["Objects"])
+# 注册路由
+app.include_router(classify.router, prefix="/api/v1")
 
 
 @app.get("/")
 async def root():
-    """Root endpoint"""
+    """API 根路径"""
     return {
-        "name": "AstroAI-Core API",
+        "service": "AstroAI-Core API",
         "version": "1.0.0",
-        "status": "running",
-        "docs": "/docs"
+        "description": "天文图像自动分类服务",
+        "docs": "/docs",
+        "redoc": "/redoc"
     }
 
 
 @app.get("/health")
-async def health_check():
-    """Health check endpoint"""
+async def health():
+    """健康检查"""
     return {
         "status": "healthy",
-        "service": "astroai-api"
+        "service": "AstroAI-Core"
     }
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

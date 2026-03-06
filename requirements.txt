@@ -1,0 +1,28 @@
+# AstroAI-Core 依赖
+
+# 深度学习
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# 数据处理
+numpy>=1.24.0
+pillow>=9.5.0
+pandas>=2.0.0
+
+# 训练工具
+tqdm>=4.65.0
+matplotlib>=3.7.0
+
+# API 服务
+fastapi>=0.100.0
+uvicorn>=0.23.0
+python-multipart>=0.0.6
+
+# 可选：实验跟踪
+# tensorboard>=2.13.0
+# wandb>=0.15.0
+
+# 可选：模型优化
+# onnx>=1.14.0
+# onnxruntime>=1.15.0
